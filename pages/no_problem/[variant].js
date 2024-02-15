@@ -1,5 +1,30 @@
-export default function Home() {
-  return <CardList variant="mobile" />;
+import { useMediaQuery } from "usehooks-ts";
+
+export function useIsDesktop(variant) {
+  console.log({ variant });
+  const isDesktop = useMediaQuery("(min-width: 768px)", {
+    defaultValue: variant === "desktop",
+  });
+  return isDesktop;
+}
+
+export default function Home({ variant }) {
+  const isDesktop = useIsDesktop(variant);
+  console.log({ isDesktop });
+  return <CardList variant={isDesktop ? "desktop" : "mobile"} />;
+}
+
+export function getStaticPaths() {
+  return {
+    paths: ["/no_problem/mobile", "/no_problem/desktop"],
+    fallback: false,
+  };
+}
+
+export function getStaticProps(context) {
+  return {
+    props: { variant: context.params.variant },
+  };
 }
 
 function CardList({ variant }) {
