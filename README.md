@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Tricks for nextjs ssg and screen size
+
+![Graph](image.png)
