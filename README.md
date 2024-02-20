@@ -5,3 +5,7 @@ It happens because we use javascript to decide on the layout and we cannot know 
 This way generates both versions and uses cdn and the nextjs middleware to redirect to the correct one.
 
 ![Graph](image.png)
+
+
+Lessons learned:
+avoid this if possible, describe all the layout states in css.
